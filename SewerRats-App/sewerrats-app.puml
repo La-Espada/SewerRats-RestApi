@@ -1,0 +1,77 @@
+@startuml
+class User<<Entity>>{
+    Id: Long
+    user_discord_tag: String
+    user_discord_username: String
+    user_coin: int
+    user_profilePicture: String
+    user_exp: double
+}
+
+class Item<<Entity>>{
+    Id: Long
+    item_name: String
+    item_description: String
+    item_heal: double
+    item_paralyze: double
+    item_poison: double
+    item_sleep: double
+    item_picture: String
+}
+
+class Rat<<Entity>>{
+    Id: Long
+    rat_name: String
+    rat_type: Type
+    rat_price: double
+    rat_possibility: double
+    rat_health: double
+    rat_speed: double
+    rat_defense: double
+    rat_damage: double
+}
+
+class Ability<<Entity>>{
+    Id: Long
+    ability_name: String
+    ability_price: double
+    ability_possibility: double
+    ability_damage: double
+    ability_type: double
+}
+
+class Fight<<Entity>>{
+    Id: Long
+    opponent_One: User
+    opponent_Two: User
+}
+
+enum Type<<Entity>>{
+Fire
+Leaf
+Poison
+Water
+Dark
+Lightning
+}
+
+enum Category<<Entity>>{
+Heal
+Status
+}
+
+
+User "n" -- "m" Rat
+User "n" -- "m" Item
+User "1" -- "1" Fight
+Fight "1" -- "1" User
+Rat "n" -- "m" Ability
+Rat -- Type
+Ability -- Type
+Item -- Category
+
+
+
+
+
+@enduml
