@@ -63,8 +63,8 @@ Status
 
 User "n" -- "m" Rat
 User "n" -- "m" Item
-User "1" -- "1" Fight
-Fight "1" -- "1" User
+User "1" -- "n" Fight
+Fight "n" -- "1" User
 Rat "n" -- "m" Ability
 Rat -- Type
 Ability -- Type
