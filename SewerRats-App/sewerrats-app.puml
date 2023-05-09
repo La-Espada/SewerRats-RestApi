@@ -17,6 +17,14 @@ class Item<<Entity>>{
     item_poison: double
     item_sleep: double
     item_picture: String
+    item_count: int
+}
+
+
+class Item_User<<Entity>>{
+    Id:Long
+    user: User
+    item: Item
 }
 
 class Rat<<Entity>>{
@@ -29,6 +37,12 @@ class Rat<<Entity>>{
     rat_speed: double
     rat_defense: double
     rat_damage: double
+}
+
+class Rat_User<<Entity>>{
+    Id: Long
+    rat: Rat
+    user: User
 }
 
 class Ability<<Entity>>{
@@ -61,8 +75,10 @@ Status
 }
 
 
-User "n" -- "m" Rat
-User "n" -- "m" Item
+User "1" -- "n" Rat_User
+Rat "1" -- "n" Rat_User
+User "1" -- "n" Item_User
+Item "1" -- "n" Item_User
 User "1" -- "n" Fight
 Fight "n" -- "1" User
 Rat "n" -- "m" Ability
