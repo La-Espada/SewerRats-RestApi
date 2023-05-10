@@ -37,6 +37,7 @@ class Rat<<Entity>>{
     rat_speed: double
     rat_defense: double
     rat_damage: double
+    rat_count: int
 }
 
 class Rat_User<<Entity>>{
@@ -51,7 +52,7 @@ class Ability<<Entity>>{
     ability_price: double
     ability_possibility: double
     ability_damage: double
-    ability_type: double
+    ability_type: Type
 }
 
 class Fight<<Entity>>{
