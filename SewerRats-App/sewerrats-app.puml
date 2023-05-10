@@ -59,6 +59,12 @@ class Fight<<Entity>>{
     Id: Long
     opponent_One: User
     opponent_Two: User
+    draw: boolean
+    winner: String
+    loser: String
+    battleStartedAt: LocalDateTime
+    battleEndedAt: LocalDateTime
+
 }
 
 enum Type<<Entity>>{

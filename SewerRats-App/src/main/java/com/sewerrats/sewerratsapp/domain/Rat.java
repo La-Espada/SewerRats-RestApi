@@ -1,9 +1,7 @@
 package com.sewerrats.sewerratsapp.domain;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -11,6 +9,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -46,4 +47,16 @@ public class Rat extends AbstractPersistable<Long> {
     @Column(name = "rat_count")
     @NotNull
     private int ratCount;
+
+    @ManyToMany(mappedBy = "rats")
+    Set<SewerRatsUser> sewerRatsUsers;
+
+    @ManyToMany
+    @JoinTable(
+            name = "rat_abilities",
+            joinColumns = @JoinColumn(name = "rat_id"),
+            inverseJoinColumns = @JoinColumn(name = "ability_id")
+
+    )
+    Set<Ability> abilities= new HashSet<>(4);
 }

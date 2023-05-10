@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import java.util.Set;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,4 +35,8 @@ public class Ability extends AbstractPersistable<Long> {
     @Enumerated(EnumType.STRING)
     @NotBlank
     private Type abilityType;
+
+    @ManyToMany(mappedBy = "abilities")
+    Set<Rat> rats;
+
 }

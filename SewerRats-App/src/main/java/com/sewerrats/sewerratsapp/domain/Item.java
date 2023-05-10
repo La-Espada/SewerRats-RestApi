@@ -3,6 +3,7 @@ package com.sewerrats.sewerratsapp.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -11,6 +12,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import java.util.Set;
 
 
 @AllArgsConstructor
@@ -44,4 +47,8 @@ public class Item extends AbstractPersistable<Long> {
     @Column(name = "item_count")
     @NotNull
     private int itemCount;
+
+    @ManyToMany(mappedBy = "items")
+    Set<SewerRatsUser> sewerRatsUsers;
+
 }

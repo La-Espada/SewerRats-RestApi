@@ -1,13 +1,13 @@
 package com.sewerrats.sewerratsapp.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.jpa.domain.AbstractPersistable;
+
+import java.util.Set;
 
 
 @EqualsAndHashCode(callSuper = true)
@@ -33,4 +33,23 @@ public class SewerRatsUser extends AbstractPersistable<Long> {
     @NotEmpty
     @Column(name = "experient_points")
     private double experientPoints;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_rats",
+            joinColumns = @JoinColumn(name = "sewerUser_id"),
+            inverseJoinColumns = @JoinColumn(name = "rat_id")
+    )
+    Set<Rat> rats;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "inventory",
+            joinColumns = @JoinColumn(name = "sewerUser_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id")
+    )
+    Set<Item> items;
+
+
 }
