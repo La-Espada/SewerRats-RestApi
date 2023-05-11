@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import java.util.List;
 import java.util.Set;
 
 
@@ -19,27 +20,46 @@ import java.util.Set;
 @Table(name = "sewerRatsUser")
 public class SewerRatsUser extends AbstractPersistable<Long> {
     @NotBlank
-    @Column(name = "discord_tag", unique = true)
+    @Column(unique = true)
     private String discordTag;
     @NotBlank
-    @Column(name = "discord_username", unique = true)
+    @Column(unique = true)
     private String discordUsername;
-    @NotEmpty
-    @Column(name="coin")
+    @NotNull
+    //@Column(name="coin")
     private int coin;
     @NotNull
-    @Column(name="profile_picture")
+    //@Column(name="profile_picture")
     private String profilePicture;
-    @NotEmpty
-    @Column(name = "experient_points")
+    @NotNull
+    //@Column(name = "experient_points")
     private double experientPoints;
 
+    @OneToMany(mappedBy = "sewerRatsUser")
+    List<RatInventory> rats;
+
+
+
+
+
+
+
+    /*
+    @OneToMany(mappedBy = "opponentOne")
+    List<Fight> fights;
+    @OneToMany(mappedBy = "opponentTwo")
+    List<Fight> fightsAgainst;
+
+     */
+
+    /*
     @ManyToMany
     @JoinTable(
             name = "user_rats",
             joinColumns = @JoinColumn(name = "sewerUser_id"),
             inverseJoinColumns = @JoinColumn(name = "rat_id")
     )
+    @Column(nullable = true)
     Set<Rat> rats;
 
 
@@ -49,7 +69,10 @@ public class SewerRatsUser extends AbstractPersistable<Long> {
             joinColumns = @JoinColumn(name = "sewerUser_id"),
             inverseJoinColumns = @JoinColumn(name = "item_id")
     )
+            @Column(nullable = true)
     Set<Item> items;
+
+     */
 
 
 }
