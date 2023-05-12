@@ -38,19 +38,11 @@ public class SewerRatsUser extends AbstractPersistable<Long> {
     @OneToMany(mappedBy = "sewerRatsUser")
     List<RatInventory> rats;
 
-
-
-
-
-
-
-    /*
     @OneToMany(mappedBy = "opponentOne")
     List<Fight> fights;
     @OneToMany(mappedBy = "opponentTwo")
     List<Fight> fightsAgainst;
 
-     */
 
     /*
     @ManyToMany
