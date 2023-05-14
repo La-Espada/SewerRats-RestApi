@@ -17,5 +17,5 @@ public class RatAbilities extends AbstractPersistable<Long> {
     private Rat rat;
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "FK_item_rat_inventory"))
-    private Item item;
+    private Ability ability;
 }

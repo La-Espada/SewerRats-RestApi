@@ -31,7 +31,7 @@ public class Ability extends AbstractPersistable<Long> {
     private double abilityDamage;
     //@Column(name = "ability_type")
     @Enumerated(EnumType.STRING)
-    @NotBlank
+    @NotNull
     private Type abilityType;
 /*
     @ManyToMany(mappedBy = "abilities")

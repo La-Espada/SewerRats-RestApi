@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AbilityRepository extends JpaRepository<Ability,Long> {
+
+    Ability findByAbilityName(String name);
+
 }

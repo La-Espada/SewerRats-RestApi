@@ -11,7 +11,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @Builder
 @Entity
 @Table(name = "item_inventory")
-public class ItemInventory extends AbstractPersistable <Long>{
+public class ItemInventory extends AbstractPersistable<Long>{
 
     @ManyToOne()
     @JoinColumn(foreignKey = @ForeignKey(name = "FK_user_item_inventory"))
