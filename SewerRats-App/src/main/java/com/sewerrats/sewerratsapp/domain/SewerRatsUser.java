@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -19,6 +20,10 @@ import java.util.Set;
 @Entity
 @Table(name = "sewerRatsUser")
 public class SewerRatsUser extends AbstractPersistable<Long> {
+    @NotNull
+    private LocalDateTime created;
+
+    private LocalDateTime updated;
     @NotBlank
     @Column(unique = true)
     private String discordTag;
