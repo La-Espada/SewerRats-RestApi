@@ -47,6 +47,15 @@ public class Rat extends AbstractPersistable<Long> {
     @NotNull
     private int ratCount;
 
+    @NotBlank
+    private String ratHat;
+
+    @NotBlank
+    private String ratBase;
+
+    @NotBlank
+    private String ratEyes;
+
     @OneToMany(mappedBy = "rat")
     List<RatInventory> users;
 

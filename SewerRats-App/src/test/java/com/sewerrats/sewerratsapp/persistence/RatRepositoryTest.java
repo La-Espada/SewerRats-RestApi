@@ -27,6 +27,9 @@ public class RatRepositoryTest {
                 .ratType(Type.Dark)
                 .ratSpeed(0.1)
                 .ratHealth(11)
+                .ratBase("aaaa")
+                .ratEyes("aaaaa")
+                .ratHat("aaaaa")
                 .build();
 
         var saved = ratRepository.save(rat);
