@@ -4,9 +4,11 @@ import com.sewerrats.sewerratsapp.domain.SewerRatsUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface SewerRatsUserRepository extends JpaRepository<SewerRatsUser,Long> {
 
-    SewerRatsUser findByDiscordUsername(String username);
+    Optional<SewerRatsUser> findByDiscordUsername(String username);
 
 }

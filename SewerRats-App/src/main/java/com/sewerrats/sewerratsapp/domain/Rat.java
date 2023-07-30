@@ -24,6 +24,7 @@ public class Rat extends AbstractPersistable<Long> {
     private String ratName;
     //@Column(name = "rat_type")
     @NotNull
+    @Enumerated(EnumType.STRING)
     private Type ratType;
     //@Column(name = "rat_price")
     @NotNull
